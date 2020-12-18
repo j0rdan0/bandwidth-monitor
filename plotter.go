@@ -4,6 +4,7 @@ package bandwidth
 
 import (
 	"os"
+	"strings"
 	"time"
 
 	chart "github.com/wcharczuk/go-chart"
@@ -64,11 +65,11 @@ func Plot() {
 		},
 	}
 
-	f, _ := os.Create("output/rx.png" + time.Now().String())
+	f, _ := os.Create("output/rx" + strings.Split(time.Now().String(), ".")[0] + ".png")
 	defer f.Close()
 	graphRX.Render(chart.PNG, f)
 
-	f2, _ := os.Create("output/tx.png" + time.Now().String())
+	f2, _ := os.Create("output/tx" + strings.Split(time.Now().String(), ".")[0] + ".png")
 	defer f2.Close()
 	graphTX.Render(chart.PNG, f2)
 

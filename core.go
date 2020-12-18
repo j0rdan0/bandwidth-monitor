@@ -52,7 +52,7 @@ func getData(interf string) (float64, float64, time.Time) {
 
 func ComposeData() []bwData {
 	interfaces := getInterfaces()
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 30; i++ {
 		for _, intf := range interfaces {
 			rx, tx, t := getData(intf)
 			Stats = append(Stats, bwData{rx, tx, t})
